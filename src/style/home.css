@@ -1,0 +1,17 @@
+.home {
+    background-color: #777777;
+        height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container {
+    width: 65%;
+    height: 80%;
+    display: flex;
+}
+@media(max-width:600px) {
+    .container {
+      width: 90%;
+    }
+  }

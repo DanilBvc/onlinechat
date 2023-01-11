@@ -1,0 +1,44 @@
+.formContainer {
+    height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.formWrapper form{
+display: flex;
+flex-direction: column;
+}
+.label {
+    margin-bottom: 5px;
+}
+.inputs {
+    margin-bottom: 10px;
+    padding: 10px;
+    border-radius: 8px;
+}
+.formWrapper {
+    padding: 10px 20px;
+    border: 1px solid #878787;
+    border-radius: 8px;
+    background-color: aliceblue;
+    
+}
+.register__btn {
+    background-color: #282828;
+    padding: 10px 0px;
+    border-radius: 8px;
+    color: white;
+}
+.login__btn {
+    background-color: #282828;
+    padding: 10px 0px;
+    border-radius: 8px;
+    color: white;
+    margin: 10px 0px;
+}
+.link {
+    text-align: center;
+}
+.title {
+    font-size: 24px;
+}

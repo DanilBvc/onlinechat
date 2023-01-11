@@ -1,13 +1,350 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* Указываем box sizing */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/* Убираем внутренние отступы */
+ul[class],
+ol[class] {
+  padding: 0;
+}
+a {
+    text-decoration: none;
+}
+
+/* Убираем внешние отступы */
+body,
+h1,
+h2,
+h3,
+h4,
+p,
+ul[class],
+ol[class],
+li,
+figure,
+figcaption,
+blockquote,
+dl,
+dd {
+  margin: 0;
+}
+
+/* Выставляем основные настройки по-умолчанию для body */
+body {
+  min-height: 100vh;
+  scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
+  line-height: 1.5;
+  min-width:320px;
+  background-color: aqua;
+}
+
+/* Удаляем стандартную стилизацию для всех ul и il, у которых есть атрибут class*/
+ul[class],
+ol[class] {
+  list-style: none;
+}
+
+/* Элементы a, у которых нет класса, сбрасываем до дефолтных стилей */
+a:not([class]) {
+  text-decoration-skip-ink: auto;
+}
+
+/* Упрощаем работу с изображениями */
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* Указываем понятную периодичность в потоке данных у article*/
+article > * + * {
+  margin-top: 1em;
+}
+
+/* Наследуем шрифты для инпутов и кнопок */
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+@font-face { font-family: Roboto-Black; 
+  src: url('../src/assets/fonts/Roboto-Black.ttf'); 
+}
+@font-face { font-family: Roboto-Bold; 
+  src: url('../src/assets/fonts/Roboto-Bold.ttf'); 
+}
+@font-face { font-family: Roboto-Light; 
+  src: url('../src/assets/fonts/Roboto-Light.ttf'); 
+}
+@font-face { font-family: Roboto-Regular; 
+  src: url('../src/assets/fonts/Roboto-Regular.ttf'); 
+}
+*{
+  font-family: Roboto-Regular;
+}
+
+.sidebar {
+   flex: 1;
+   background-color: #37393C;
+}
+.chat {
+  flex: 2;
+}
+.messages {
+  overflow: scroll;
+  background-color: #000;
+  height: calc(100% - 100px);
+}
+
+.messageImg {
+  width: 40px;
+  height: 40px;
+}
+.message {
+  background-color: #afffaf;
+  display: flex;
+  margin: 10px 0px;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.link-login {
+    font-family: Roboto-Bold;
+    color: #282828;
+    padding-left: 5px;
+}
+.preloader {
+  height: 100%;
+  width: 100%;
+  background: #fff;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 10000;
+  perspective: 1600px;
+  perspective-origin: 20% 50%;
+  transition: 0.5s all;
+  opacity: 1;
+}
+
+.spinner {
+  width: 80px;
+  height: 80px;
+  border: 2px solid #f3f3f3;
+  border-top: 3px solid #0088cf;
+  border-radius: 100%;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: spin 1s infinite linear;
+}
+
+.preloader.fade {
+  opacity: 0;
+}
+
+.b-ico-preloader {
+  background-size: cover;
+  width: 52px;
+  height: 67px;
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  margin: auto;
+  animation: ico 5s infinite linear;
+  transform-style: preserve-3d;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes ico {
+  from {
+    transform: rotateY(0deg);
+  }
+  to {
+    transform: rotateY(360deg);
+  }
+}
+.user-logo {
+  border-radius: 20px;
+    width: 40px;
+    height: 40px;
+}
+.user {
+  display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+}
+.logout {
+  background-color: #282828;
+  border-radius: 8px;
+  color: white;
+}
+.navbar {
+  padding: 10px;
+}
+.user__left {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.search-input {
+  background: url(../src/assets/search.png) no-repeat right center;
+  background-position: 95%;
+  background-color: white;
+  background-size: 20px;
+  color: black;
+  width: 94%;
+  border-radius: 8px;
+  margin: 0px 10px;
+  padding: 10px;
+}
+.chats {
+  border-top: 1px solid white;
+  margin-top: 9px;
+}
+.chats-txt {
+  text-align: center;
+    display: flex;
+    justify-content: center;
+    margin-top: 9px;
+}
+.userChat-img {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+.userChat {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+}
+.hide {
+  opacity: 0;
+}
+.userChatInfo {
+  font-family: Roboto-Light;
+  margin-left: 9px;
+  line-height: 20px;
+}
+.userChatName {
+  font-size: 16px;
+  color: #fff;
+}
+.userChatLast {
+  font-size: 16px;
+    color: rgb(161, 161, 161);
+    line-height: 15px;
+}
+.chatInfo {
+  background-color: #37393C;
+  display: flex;
+  padding: 10px;
+  align-items: center;
+}
+.chatImg {
+  height: 40px;
+  width: 40px;
+  border-radius: 50%;
+}
+.chatName {
+  color: #fff;
+  margin-left: 9px;
+}
+::-webkit-scrollbar {
+  width: 0px;
+  background: rgba(255, 255, 255, 0.0);
+}
+.messageInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  padding: 10px;
+}
+.messageContent {
+  max-width: 50%;
+}
+.owner {
+  background-color: #727272;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.guest .messageInfo {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 10px;
+}
+.guest .messageContent {
+  padding-left: 10px;
+}
+.owner .messageContent {
+  padding-right: 10px;
+}
+.input-img {
+  width: 40px;
+  height: 40px;
+}
+.input-file {
+  width: 40px;
+    height: 40px;
+    position: absolute;
+    top: 0;
+    opacity: 0;
+}
+.send {
+  position: relative;
+}
+.input-message {
+  width: 100%;
+}
+.input {
+  display: flex;
+    justify-content: center;
+}
+.userChat:hover  {
+background-color: #65686d;
+cursor: pointer;
+}
+.logout:hover {
+  background-color: #000;
+  cursor: pointer;
+}
+.find {
+  display: flex;
+  align-items: center;
+  border: 1px solid #fff;
+  margin: 10px;
+}
+.find:hover {
+  cursor: pointer;
+}
+@media (max-width: 900px) {
+  body, .userChatLast, .userChatName {
+    font-size: 10px;
+  }
+  .search-input{
+    margin: 0;
+  }
+  .userChat {
+    padding: 0;
+    padding-top: 10px;
+  }
 }
